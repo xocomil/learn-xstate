@@ -89,11 +89,13 @@ export const mediaPlayerStateMachine =
         },
       },
       'Fast Forward': {
+        entry: assign({ atBeginning: false }),
         on: {
           Stop: {
             target: 'Stopped',
           },
           AtEnd: {
+            actions: assign({ atEnd: (context) => true }),
             target: 'Stopped',
           },
         },

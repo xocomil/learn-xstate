@@ -1,3 +1,44 @@
 :host {
+  --text-color: hsl(0deg, 0%, 100%);
+
   display: block;
+  height: 80%;
+  width: 80%;
+  border: 2px solid var(--text-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border-radius: 0.6rem;
+  margin: auto;
+  overflow: auto;
+
+  .media-player {
+    --background-color: hsl(0deg 0% 0%);
+
+    position: relative;
+    background-color: var(--background-color);
+    border-radius: 0.6rem;
+    height: 18rem;
+    width: 32rem;
+    border: 2px solid var(--text-color);
+    font-size: 4rem;
+    vertical-align: center;
+    text-align: center;
+
+    .play-status {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      font-size: 0.8rem;
+    }
+  }
+
+  .button-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: var(--background-color);
+    border-radius: 0.6rem;
+  }
 }

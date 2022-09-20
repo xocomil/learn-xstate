@@ -30,7 +30,7 @@ type MediaPlayerInterpreter = Interpreter<
 @Injectable()
 export class MediaPlayerStateMachineService implements OnDestroy {
   readonly #subs = new Subscription();
-  readonly state$: Observable<MediaPlayerContext>;
+  readonly state$: Observable<any>;
   readonly #service: MediaPlayerInterpreter;
   readonly actions$ = new Subject<any>();
 
