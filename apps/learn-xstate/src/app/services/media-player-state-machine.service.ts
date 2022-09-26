@@ -27,10 +27,15 @@ type MediaPlayerInterpreter = Interpreter<
   >
 >;
 
+interface MediaPlayerState {
+  value: 'Stopped' | 'Playing' | 'Paused' | 'Rewind' | 'Fast Forward';
+  context: MediaPlayerContext;
+}
+
 @Injectable()
 export class MediaPlayerStateMachineService implements OnDestroy {
   readonly #subs = new Subscription();
-  readonly state$: Observable<any>;
+  readonly state$: Observable<MediaPlayerState[]>;
   readonly #service: MediaPlayerInterpreter;
   readonly actions$ = new Subject<any>();
 
@@ -41,12 +46,12 @@ export class MediaPlayerStateMachineService implements OnDestroy {
   }
 
   #setupMachine(): {
-    state$: Observable<MediaPlayerContext>;
+    state$: Observable<MediaPlayerState[]>;
     service: MediaPlayerInterpreter;
   } {
     const service = interpret(mediaPlayerStateMachine);
 
-    const state$ = fromEventPattern<MediaPlayerContext>(
+    const state$ = fromEventPattern<MediaPlayerState[]>(
       (handler) => {
         service.onTransition(handler).start();
 
