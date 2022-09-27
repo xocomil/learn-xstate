@@ -7,28 +7,21 @@ import {
   Interpreter,
   ResolveTypegenMeta,
   ServiceMap,
+  StateValue,
   TypegenDisabled,
 } from 'xstate';
-import {
-  MediaPlayerContext,
-  mediaPlayerStateMachine,
-} from '../state machines/media.player';
+import { MediaPlayerContext, mediaPlayerStateMachine } from '../state machines/media.player';
 
-type MediaPlayerInterpreter = Interpreter<
+export type MediaPlayerInterpreter = Interpreter<
   MediaPlayerContext,
   any,
   AnyEventObject,
   { value: any; context: MediaPlayerContext },
-  ResolveTypegenMeta<
-    TypegenDisabled,
-    AnyEventObject,
-    BaseActionObject,
-    ServiceMap
-  >
+  ResolveTypegenMeta<TypegenDisabled, AnyEventObject, BaseActionObject, ServiceMap>
 >;
 
-interface MediaPlayerState {
-  value: 'Stopped' | 'Playing' | 'Paused' | 'Rewind' | 'Fast Forward';
+export interface MediaPlayerState {
+  value: StateValue;
   context: MediaPlayerContext;
 }
 
