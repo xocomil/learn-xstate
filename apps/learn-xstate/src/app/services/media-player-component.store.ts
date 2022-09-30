@@ -6,6 +6,8 @@ import { AnyEventObject, BaseActionObject, interpret, ResolveTypegenMeta, Servic
 import { MediaPlayerContext, mediaPlayerStateMachine } from '../state machines/media.player';
 import { MediaPlayerInterpreter, MediaPlayerState } from './media-player-state-machine.service';
 
+export type MediaPlayerActions = 'Play' | 'Stop' | 'Pause' | 'Rewind' | 'FastForward' | 'AtBeginning' | 'AtEnd';
+
 type StateMachineState = State<
   MediaPlayerContext,
   AnyEventObject,
@@ -25,9 +27,7 @@ const initialState: ComponentState = Object.freeze({
   currentState: undefined,
 });
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class MediaPlayerComponentStore extends ComponentStore<ComponentState> implements OnDestroy {
   readonly #service: MediaPlayerInterpreter;
   readonly currentState$: Observable<MediaPlayerState | undefined> = this.select((state) => state.currentState);
@@ -46,7 +46,7 @@ export class MediaPlayerComponentStore extends ComponentStore<ComponentState> im
     });
   });
 
-  sendAction = this.effect((action$: Observable<'Playing' | 'Stopped' | 'Paused' | 'Rewind' | 'Fast Forward'>) =>
+  sendAction = this.effect((action$: Observable<MediaPlayerActions>) =>
     action$.pipe(
       tap((action) => {
         this.#service.send(action);
