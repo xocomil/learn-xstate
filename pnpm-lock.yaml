@@ -46,7 +46,7 @@ specifiers:
   stylelint-config-prettier-scss: ^0.0.1
   stylelint-config-standard-scss: ^5.0.0
   stylelint-prettier: ^2.0.0
-  ts-jest: 28.0.5
+  ts-jest: 28.0.8
   ts-node: 10.9.1
   tslib: ^2.3.0
   typescript: ~4.8.2
@@ -104,7 +104,7 @@ devDependencies:
   stylelint-config-prettier-scss: 0.0.1_stylelint@14.12.1
   stylelint-config-standard-scss: 5.0.0_nqmbdxq5redfjw6kdtxj73dev4
   stylelint-prettier: 2.0.0_tugccnn56qs6o3hpgajpfocewy
-  ts-jest: 28.0.5_gf6dyvcgtigdve4ryrvmsphtm4
+  ts-jest: 28.0.8_gf6dyvcgtigdve4ryrvmsphtm4
   ts-node: 10.9.1_uy3tisehfls5pfqhs67n5t26fu
   typescript: 4.8.3
 
@@ -264,7 +264,7 @@ packages:
         optional: true
     dependencies:
       ajv: 8.11.0
-      ajv-formats: 2.1.1
+      ajv-formats: 2.1.1_ajv@8.11.0
       jsonc-parser: 3.1.0
       rxjs: 6.6.7
       source-map: 0.7.4
@@ -279,7 +279,7 @@ packages:
         optional: true
     dependencies:
       ajv: 8.11.0
-      ajv-formats: 2.1.1
+      ajv-formats: 2.1.1_ajv@8.11.0
       chokidar: 3.5.3
       jsonc-parser: 3.1.0
       rxjs: 6.6.7
@@ -4624,8 +4624,10 @@ packages:
       clean-stack: 2.2.0
       indent-string: 4.0.0
 
-  /ajv-formats/2.1.1:
+  /ajv-formats/2.1.1_ajv@8.11.0:
     resolution: {integrity: sha512-Wx0Kx52hxE7C18hkMEggYlEifqWZtYaRgouJor+WMdPnQyEK13vgEWyVNup7SoeeoLMsr4kf5h6dOW11I15MUA==}
+    peerDependencies:
+      ajv: ^8.0.0
     peerDependenciesMeta:
       ajv:
         optional: true
@@ -8373,12 +8375,13 @@ packages:
       jest: 28.1.1_6m7kcbkkzjz4ln6z66tlzx44we
       jest-environment-jsdom: 28.1.1
       pretty-format: 28.1.3
-      ts-jest: 28.0.5_7qxexagfbfhydoqjio4fbhdyai
+      ts-jest: 28.0.8_7qxexagfbfhydoqjio4fbhdyai
       typescript: 4.8.3
     optionalDependencies:
       esbuild: 0.15.7
     transitivePeerDependencies:
       - '@babel/core'
+      - '@jest/types'
       - babel-jest
       - bufferutil
       - canvas
@@ -11267,7 +11270,7 @@ packages:
     dependencies:
       '@types/json-schema': 7.0.11
       ajv: 8.11.0
-      ajv-formats: 2.1.1
+      ajv-formats: 2.1.1_ajv@8.11.0
       ajv-keywords: 5.1.0_ajv@8.11.0
 
   /secure-compare/3.0.1:
@@ -12144,18 +12147,21 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /ts-jest/28.0.5_7qxexagfbfhydoqjio4fbhdyai:
-    resolution: {integrity: sha512-Sx9FyP9pCY7pUzQpy4FgRZf2bhHY3za576HMKJFs+OnQ9jS96Du5vNsDKkyedQkik+sEabbKAnCliv9BEsHZgQ==}
+  /ts-jest/28.0.8_7qxexagfbfhydoqjio4fbhdyai:
+    resolution: {integrity: sha512-5FaG0lXmRPzApix8oFG8RKjAz4ehtm8yMKOTy5HX3fY6W8kmvOrmcY0hKDElW52FJov+clhUbrKAqofnj4mXTg==}
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     hasBin: true
     peerDependencies:
       '@babel/core': '>=7.0.0-beta.0 <8'
+      '@jest/types': ^28.0.0
       babel-jest: ^28.0.0
       esbuild: '*'
       jest: ^28.0.0
       typescript: '>=4.3'
     peerDependenciesMeta:
       '@babel/core':
+        optional: true
+      '@jest/types':
         optional: true
       babel-jest:
         optional: true
@@ -12176,18 +12182,21 @@ packages:
       yargs-parser: 21.1.1
     dev: true
 
-  /ts-jest/28.0.5_gf6dyvcgtigdve4ryrvmsphtm4:
-    resolution: {integrity: sha512-Sx9FyP9pCY7pUzQpy4FgRZf2bhHY3za576HMKJFs+OnQ9jS96Du5vNsDKkyedQkik+sEabbKAnCliv9BEsHZgQ==}
+  /ts-jest/28.0.8_gf6dyvcgtigdve4ryrvmsphtm4:
+    resolution: {integrity: sha512-5FaG0lXmRPzApix8oFG8RKjAz4ehtm8yMKOTy5HX3fY6W8kmvOrmcY0hKDElW52FJov+clhUbrKAqofnj4mXTg==}
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     hasBin: true
     peerDependencies:
       '@babel/core': '>=7.0.0-beta.0 <8'
+      '@jest/types': ^28.0.0
       babel-jest: ^28.0.0
       esbuild: '*'
       jest: ^28.0.0
       typescript: '>=4.3'
     peerDependenciesMeta:
       '@babel/core':
+        optional: true
+      '@jest/types':
         optional: true
       babel-jest:
         optional: true
